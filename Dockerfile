@@ -1,7 +1,7 @@
 # Author : Vongkeo KSV
 
 # Pull the base image 
-FROM node:20.15.0 as build-stage
+FROM node:20.15.0-alpine as build-stage
 
 # set working directory
 WORKDIR /app
@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm ci --omit=dev
 
 # Copy all files
 COPY . .
@@ -18,6 +18,13 @@ COPY . .
 # Build app
 RUN npm run build
 
-CMD ["node", ".output/server/index.mjs"]
-
+# Expose the correct port
 EXPOSE 3000
+
+# Set environment variables for production
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=3000
+
+# Start the application
+CMD ["node", ".output/server/index.mjs"]
