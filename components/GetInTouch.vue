@@ -8,11 +8,13 @@
             </div>
 
             <div class="mt-6">
-                <MapaMerlo />
+                <ClientOnly>
+                    <MapaMerlo />
+                </ClientOnly>
             </div>
         </section>
 </template>
 
 <script setup>
-  import MapaMerlo from './MapaMerlo.vue'
+  import MapaMerlo from './MapaMerlo.client.vue'
 </script>
