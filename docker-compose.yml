@@ -1,0 +1,29 @@
+# Definición de los servicios (contenedores) que compondrán tu aplicación
+services:
+  # Nombre del servicio de tu aplicación Nuxt
+  dos-venados-site:
+    # Instrucción para construir la imagen. Docker Compose buscará el Dockerfile
+    # en el directorio actual (.).
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    # Mapeo de puertos: conecta el puerto 3000 de tu máquina (host) al puerto 3000
+    # del contenedor, donde corre la app Nuxt.
+    ports:
+      - "3031:3000"
+    networks:
+      - dynamic_home_network
+    # Política de reinicio. 'unless-stopped' reiniciará el contenedor si se cae,
+    # a menos que lo hayas detenido tú manualmente.
+    restart: unless-stopped
+
+    # Aquí defines las variables de entorno para tu aplicación.
+    # Es la forma correcta de pasar secretos y configuraciones.
+      # Ejemplo: descomenta y ajusta estas líneas si tu app las necesita.
+      # NODE_ENV: production
+      # NUXT_PUBLIC_API_URL: https://api.tusitio.com
+
+networks:
+  dynamic_home_network:
+    external: true

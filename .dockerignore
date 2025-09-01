@@ -1,0 +1,19 @@
+# Archivo: .dockerignore
+
+# Dependencias de Node
+node_modules
+
+# Archivos de caché y salida de Nuxt
+.nuxt
+.output
+dist
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# Git
+.git
+
+# Variables de entorno
+.env
