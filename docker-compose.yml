@@ -2,14 +2,15 @@
 services:
   # Nombre del servicio de tu aplicación Nuxt
   dos-venados-site:
-    image: node:20.15.0
-    working_dir: /app
+    build:
+      context: .
+    container_name: dos-venados-site
+    restart: always
     ports:
-      - "3031:80"
-    environment:
-      - HOST=0.0.0.0
-    volumes:
-      - .:/app
+      - "3000:80"
+    networks:
+      - dmit_network
+  
 
 networks:
   dynamic_home_network:
