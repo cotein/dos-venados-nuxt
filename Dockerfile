@@ -9,7 +9,6 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-COPY nuxt.config.ts ./
 # Install dependencies
 RUN npm install
 
@@ -18,8 +17,6 @@ COPY . .
 
 # Build app
 RUN npm run build
-
-RUN npm install tailwindcss
 
 # Expose the correct port
 EXPOSE 3000

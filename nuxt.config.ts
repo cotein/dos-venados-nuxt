@@ -46,6 +46,9 @@ export default defineNuxtConfig({
       ]
     },
   },
+  build: {
+    transpile: ['shiki'],
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
