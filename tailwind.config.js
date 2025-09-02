@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+
+module.exports = {
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
@@ -8,23 +9,21 @@ export default {
     "./app.vue",
     "./error.vue",
   ],
-  darkMode: 'class',
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
-    // MOVIDO: Todas las personalizaciones ahora están dentro de 'extend'
-    extend: {
-      screens: {
+    screens: {
         xs: "540px",
         sm: '640px',
-        md: '76-8px',
+        md: '768px',
         lg: '1024px',
         xl: '1280px',
         '2xl': '1536px',
         lg_992: '992px',
-      },
-      fontFamily: {
+    },
+    fontFamily: {
         'libre_franklin': ['"Libre Franklin", sans-serif'],
-      },
-      container: {
+    },
+    container: {
         center: true,
         padding: {
             DEFAULT: '12px',
@@ -33,46 +32,54 @@ export default {
             xl: '5rem',
             '2xl': '13rem',
         },
-      },
-      colors: {
-        'dark': '#3c4858',
-        'black': '#161c2d',
-        'dark-footer': '#192132',
-      },
-      boxShadow: {
-        sm: '0 2px 4px 0 rgb(60 72 88 / 0.15)',
-        DEFAULT: '0 0 3px rgb(60 72 88 / 0.15)',
-        md: '0 5px 13px rgb(60 72 88 / 0.20)',
-        lg: '0 10px 25px -3px rgb(60 72 88 / 0.15)',
-        xl: '0 20px 25px -5px rgb(60 72 88 / 0.1), 0 8px 10px -6px rgb(60 72 88 / 0.1)',
-        '2xl': '0 25px 50px -12px rgb(60 72 88 / 0.25)',
-        inner: 'inset 0 2px 4px 0 rgb(60 72 88 / 0.05)',
-        testi: '2px 2px 2px -1px rgb(60 72 88 / 0.15)',
-      },
-      fontSize: {
-        base: ['15px', '28px'],
-        lg: ['17px', '28px'],
-      },
-      spacing: {
-        0.75: '0.1875rem',
-        3.25: '0.8125rem'
-      },
-      maxWidth: ({
-        theme,
-        breakpoints
-      }) => ({
-        '1200': '71.25rem',
-        '992': '60rem',
-        '768': '45rem',
-      }),
-      zIndex: {
-        1: '1',
-        2: '2',
-        3: '3',
-        999: '999',
-      },
+     
+
     },
-  },
+    extend: {
+        colors: {
+            'dark': '#3c4858',
+            'black': '#161c2d',
+            'dark-footer': '#192132',
+        },
+
+        boxShadow: {
+            sm: '0 2px 4px 0 rgb(60 72 88 / 0.15)',
+            DEFAULT: '0 0 3px rgb(60 72 88 / 0.15)',
+            md: '0 5px 13px rgb(60 72 88 / 0.20)',
+            lg: '0 10px 25px -3px rgb(60 72 88 / 0.15)',
+            xl: '0 20px 25px -5px rgb(60 72 88 / 0.1), 0 8px 10px -6px rgb(60 72 88 / 0.1)',
+            '2xl': '0 25px 50px -12px rgb(60 72 88 / 0.25)',
+            inner: 'inset 0 2px 4px 0 rgb(60 72 88 / 0.05)',
+            testi: '2px 2px 2px -1px rgb(60 72 88 / 0.15)',
+        },
+
+        fontSize: {
+            base: ['15px', '28px'],
+            lg: ['17px', '28px'],
+        },
+
+        spacing: {
+            0.75: '0.1875rem',
+            3.25: '0.8125rem'
+        },
+     
+        maxWidth: ({
+            theme,
+            breakpoints
+        }) => ({
+            '1200': '71.25rem',
+            '992': '60rem',
+            '768': '45rem',
+        }),
+
+        zIndex: {
+            1: '1',
+            2: '2',
+            3: '3',
+            999: '999',
+        },
+    },
+},
  
   plugins: [],
 }
