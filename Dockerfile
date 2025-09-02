@@ -19,6 +19,8 @@ COPY . .
 # Build app
 RUN npm run build
 
+RUN npm install tailwindcss
+
 # Expose the correct port
 EXPOSE 3000
 
